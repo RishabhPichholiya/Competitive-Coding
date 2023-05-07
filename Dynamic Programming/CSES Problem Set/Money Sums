@@ -1,0 +1,16 @@
+import sys ,io,os
+input = io.BytesIO(os.read(0,os.fstat(0).st_size)).readline
+n=int(input())
+x=list(map(int,input().split())) 
+ans=set()
+temp=[0] 
+r=0 
+for i in range(n):
+    for it in temp:
+        ans.add(it+x[i]) 
+    temp=list(ans)
+    temp.append(0) 
+ans=list(ans)
+ans.sort()
+print(len(ans))
+print(*ans)
