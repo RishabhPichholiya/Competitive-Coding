@@ -1,0 +1,10 @@
+from collections import defaultdict
+ 
+n, x = map(int, input().split())
+coins = list(map(int, input().split()))
+dp = defaultdict(int)
+dp[0] = 1
+for coin in coins:
+    for i in range(coin, x+1):
+        dp[i] += dp[i-coin]
+print(dp[x])
